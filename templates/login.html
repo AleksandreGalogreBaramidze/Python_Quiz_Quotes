@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ super() }}
+    <div class="position-absolute bottom-0 start-50 translate-middle-x">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <form method="post" style="width:20%; margin-left:20px; margin-bottom: 20px; margin-top: 20px">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <input type="text" name="username" class="form-control mb-3 mt-3" placeholder="username">
+                <input type="email" name="email" class="form-control mb-3 mt-3" placeholder="email">
+                <input type="password" name="password" class="form-control mb-3 mt-3" placeholder="password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-warning">ავტორიზაცია</button>
+    </form>
+    </div>
+{% endblock %}
